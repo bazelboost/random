@@ -1,0 +1,34 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+_detail_hdrs = [
+    "include/boost/random/detail/*.hpp"
+]
+
+cc_library(
+    name = "random_internal",
+    hdrs = glob(_detail_hdrs),
+    deps = [
+        "@boost//config",
+        "@boost//throw_exception",
+        "@boost//type_traits",
+        "@boost//io",
+        "@boost//multiprecision",
+    ],
+)
+
+cc_library(
+    name = "random",
+    visibility = ["//visibility:public"],
+    includes = ["include"],
+    defines = ["BOOST_ALL_NO_LIB"],
+    hdrs = glob(["include/**/*.hpp"], exclude = _detail_hdrs),
+    srcs = glob(["src/*.cpp"]),
+    deps = [
+        ":random_internal",
+        "@boost//core",
+        "@boost//integer",
+        "@boost//system",
+        "@boost//range",
+        "@boost//dynamic_bitset",
+    ],
+)

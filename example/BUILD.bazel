@@ -1,0 +1,32 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary");
+
+# cc_binary(
+#     name = "intersections",
+#     srcs = ["intersections.cpp"],
+#     deps = [
+#         "//:random",
+#         "@boost//tuple",
+#         "@boost//math",
+#     ],
+# )
+
+cc_binary(
+    name = "password",
+    srcs = ["password.cpp"],
+    deps = ["//:random"],
+)
+
+cc_binary(
+    name = "random_demo",
+    srcs = ["random_demo.cpp"],
+    deps = [
+        "//:random",
+        "@boost//iterator",
+    ],
+)
+
+cc_binary(
+    name = "weighted_die",
+    srcs = ["weighted_die.cpp"],
+    deps = ["//:random"],
+)
