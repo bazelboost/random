@@ -5,8 +5,8 @@ load("@rules_cc//cc:defs.bzl", "cc_binary");
 #     srcs = ["intersections.cpp"],
 #     deps = [
 #         "//:random",
-#         "@boost//tuple",
-#         "@boost//math",
+#         "@boost//libs/tuple",
+#         "@boost//libs/math",
 #     ],
 # )
 
@@ -21,7 +21,7 @@ cc_binary(
     srcs = ["random_demo.cpp"],
     deps = [
         "//:random",
-        "@boost//iterator",
+        "@boost//libs/iterator",
     ],
 )
 

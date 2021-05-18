@@ -8,11 +8,11 @@ cc_library(
     name = "random_internal",
     hdrs = glob(_detail_hdrs),
     deps = [
-        "@boost//config",
-        "@boost//throw_exception",
-        "@boost//type_traits",
-        "@boost//io",
-        "@boost//multiprecision",
+        "@boost//libs/config",
+        "@boost//libs/throw_exception",
+        "@boost//libs/type_traits",
+        "@boost//libs/io",
+        "@boost//libs/multiprecision",
     ],
 )
 
@@ -25,10 +25,10 @@ cc_library(
     srcs = glob(["src/*.cpp"]),
     deps = [
         ":random_internal",
-        "@boost//core",
-        "@boost//integer",
-        "@boost//system",
-        "@boost//range",
-        "@boost//dynamic_bitset",
+        "@boost//libs/core",
+        "@boost//libs/integer",
+        "@boost//libs/system",
+        "@boost//libs/range",
+        "@boost//libs/dynamic_bitset",
     ],
 )
